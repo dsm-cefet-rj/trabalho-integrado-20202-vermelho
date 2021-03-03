@@ -1,0 +1,58 @@
+.pedidos-recebidos-titulo {
+    height: 12vw;
+    color: #12232E;
+    font-size: 10vw;
+}
+
+.pedidos-recebidos-titulo h3 {
+    font-size: 5vw;
+
+}
+
+.pedido {
+    margin-top: 3vw;
+    border:4px solid #001B48;
+}
+
+.detalhes {
+    font-size: auto;
+
+}
+
+.total {
+    font-size: 5vw;
+}
+
+.cabecalho {
+    border-bottom: 1vw solid #001B48;
+    background-color: #001B48;
+}
+
+.cabecalho h1 {
+    color: #DCE1E3;
+    font-size: 5vw;
+}
+
+#main {
+    border-bottom: 0.5vw solid #001B48;
+}
+
+#corpo {
+    background-color: #DCE1E3;
+}
+
+.botoes {
+    text-align: center;
+    margin-bottom: 2vw;
+}
+
+.botao {
+    font-size: 5vw;
+}
+
+ul li{
+    font-size: 5vw;
+}
+ul{
+    list-style-type: none;
+}

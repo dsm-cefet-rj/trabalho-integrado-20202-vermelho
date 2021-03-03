@@ -1,0 +1,38 @@
+.cardapio-titulo {
+    height: 12vw;
+    background-color: #DCE1E3;
+    color: #12232E;
+    font-size: 10vw;
+
+}
+
+#main {
+    border-bottom: 0.5vw solid #001B48;
+}
+
+.cardapio-titulo h3 {
+    font-size: 5vw;
+    margin-left: 1vw;
+
+}
+
+#corpo {
+    background-color: #DCE1E3;
+}
+
+.botoes {
+    text-align: center;
+}
+
+
+.botao {
+    font-size: 5vw;
+}
+
+
+label {
+    color: #12232E;
+    font-size:5vw;
+    margin-left: 1vw;
+
+}

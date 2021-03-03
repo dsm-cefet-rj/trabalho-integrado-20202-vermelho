@@ -1,0 +1,11 @@
+.Menu {
+    background-color:black;
+}
+
+.menu-texto {
+    font-size: 5vw;
+    color: white;
+    padding-right: 2vw;
+    border-right-style: groove;
+    border-width: 0.2vw;
+}
