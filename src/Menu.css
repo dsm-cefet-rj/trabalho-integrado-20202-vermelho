@@ -9,3 +9,8 @@
     border-right-style: groove;
     border-width: 0.2vw;
 }
+
+a {
+    text-decoration: none;
+    color: black;
+}

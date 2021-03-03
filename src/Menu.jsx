@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { Link } from 'react-router-dom';
 
 import './Menu.css';
 
@@ -28,9 +29,12 @@ export default function SimpleMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Login</MenuItem>
-        <MenuItem onClick={handleClose}>Cardápio</MenuItem>
-        <MenuItem onClick={handleClose}>Pedidos</MenuItem>
+        <MenuItem onClick={handleClose}><a href='/cardapio'>Cardápio</a></MenuItem>
+        <MenuItem onClick={handleClose}><a href='/cria-cardapio'>Criar Cardápio</a></MenuItem>
+        <MenuItem onClick={handleClose}><a href='/realiza-pedido'>Fazer Pedido</a></MenuItem>
+        <MenuItem onClick={handleClose}><a href='/cria-refeicao'>Criar Refeição</a></MenuItem>
+        <MenuItem onClick={handleClose}> <a href='/pedidos-recebidos'> Pedidos </a></MenuItem>
+
       </Menu>
     </div>
   );

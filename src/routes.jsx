@@ -19,12 +19,16 @@ export default props => {
                 <Cardapio/>
             </Route>
 
-            <Route exact path = '/pedidos'>
+            <Route exact path = '/pedidos-recebidos'>
                 <PedidosRecebidos/>
             </Route>
 
             <Route exact path = '/cria-cardapio'>
                 <CriaCardapio/>
+            </Route>
+
+            <Route exact path = '/cria-refeicao'>
+                <CriaRefeicao/>
             </Route>
         </Router>
     )

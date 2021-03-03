@@ -12,7 +12,7 @@ export default props => {
         <br/>
         <form action="">
             <div>
-                <select className="form-control form-control-sm">
+                <select className="opcoes">
                     <option>Café da Manhã</option>
                     <option>Almoço</option>
                     <option>Sobremesa</option>
@@ -23,7 +23,7 @@ export default props => {
                 </select>
             </div>
         </form>
-        
+        <br/>
         <div class="botoes">
             <button type="button" onclick="window.location.href = 'realiza-pedido.html'" class="btn btn-primary"><div class="botao">Ir para Pedido</div></button>
             <button type="button" className="btn btn-danger"><div className="botao">Limpar</div></button>
