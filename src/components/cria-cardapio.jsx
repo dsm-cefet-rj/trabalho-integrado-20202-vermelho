@@ -10,7 +10,7 @@ export default props => {
            <h3>Criar Cardápio</h3>
         </div>
         <br/>       
-        <form>
+        <form className="formularios">
             <div className="form-group">
                  <label for="formGroupExampleInput">Nome: </label>
                  <br/>

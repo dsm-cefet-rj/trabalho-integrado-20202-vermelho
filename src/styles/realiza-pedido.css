@@ -5,6 +5,10 @@
     font-size: 10vw;
 }
 
+.quarto{
+    margin-left:5vw ;
+}
+
 .realiza-pedido-titulo h3 {
     font-size: 5vw;
     margin-top: 0vw;
@@ -16,6 +20,12 @@
     background-color: rgb(231, 229, 229);
     min-height: 100vh;
 }
+
+#realiza-pedido .form-control {
+    width: 20vw;
+    height: 5vw;
+}
+
 
 .pedido {
     margin-top: 3vw;

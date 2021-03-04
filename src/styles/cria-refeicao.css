@@ -18,6 +18,16 @@
     min-height: 100vh;
 }
 
+#cria-refeicao .form-control {
+    width: 80vw;
+    height: 10vw;
+    margin-left: 5vw;
+}
+
+.label-title{
+    margin-left: 5vw;
+}
+
 #main {
     border-bottom: 0.5vw solid #001B48;
 }

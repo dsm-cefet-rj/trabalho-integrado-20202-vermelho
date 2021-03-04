@@ -22,12 +22,13 @@
     min-height: 100vh;
 }
 
-#corpo {
-    background-color: #DCE1E3;
+.seletor {
+    padding-left: 5vw;
 }
 
 .opcoes {
     font-size: 5vw;
+    width: 90vw;
 }
 
 .botoes {

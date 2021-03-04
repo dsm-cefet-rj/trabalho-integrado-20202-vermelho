@@ -18,12 +18,13 @@
     min-height: 100vh;
 }
 
-#main {
-    border-bottom: 0.5vw solid #001B48;
+#cria-cardapio .form-control {
+    width: 80vw;
+    height: 10vw;
 }
 
-#corpo {
-    background-color: #DCE1E3;
+.formularios {
+    padding: 5vw;
 }
 
 .botoes {

@@ -11,7 +11,7 @@ export default props => {
         </div>
         <br/>
         <form action="">
-            <div>
+            <div className="seletor">
                 <select className="opcoes">
                     <option>Café da Manhã</option>
                     <option>Almoço</option>

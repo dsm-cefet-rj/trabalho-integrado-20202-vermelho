@@ -11,13 +11,13 @@ export default props => {
             <br/>
             <form>
                 <div className="form-group">
-                    <label for="formGroupExampleInput">Nome: </label>
+                    <label for="formGroupExampleInput" className="label-title">Nome: </label>
                     <br/>
                     <input type="text" className="form-control" id="formGroupExampleInput" placeholder=""/>
                 </div>
                 <br/>
                 <div className="form-group">
-                    <label for="formGroupExampleInput2">Tipo: </label>
+                    <label for="formGroupExampleInput2" className="label-title">Tipo: </label>
                     <br/>
                     <input type="text" className="form-control" id="formGroupExampleInput2" placeholder=""/>
                 </div>
