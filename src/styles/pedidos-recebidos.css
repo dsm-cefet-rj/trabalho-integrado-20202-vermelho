@@ -12,6 +12,11 @@
     padding-left: 2vw;
 }
 
+#pedidos-recebidos {
+    background-color: rgb(231, 229, 229);
+    min-height: 100vh;
+}
+
 .pedido {
     margin-top: 3vw;
     border:4px solid #001B48;
