@@ -27,11 +27,11 @@
 
    <form>
        <div class="form-group col-md-2">
-           <label class="quarto" for="inputZip">Quarto: </label>
+           <label class="quarto" for="inputZip">Quarto:  </label>
            <input type="text" class="form-control" id="inputZip"/>
        </div>
    </form>
-
+    <br/>
    <div class="total">
        Total:
        R$ 50,00

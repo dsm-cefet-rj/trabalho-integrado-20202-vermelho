@@ -13,6 +13,11 @@
     padding-left: 2vw;
 }
 
+#cria-cardapio {
+    background-color: rgb(231, 229, 229);
+    min-height: 100vh;
+}
+
 #main {
     border-bottom: 0.5vw solid #001B48;
 }

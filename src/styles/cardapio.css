@@ -17,6 +17,11 @@
     padding-left: 2vw;
 }
 
+#cardapio {
+    background-color: rgb(231, 229, 229);
+    min-height: 100vh;
+}
+
 #corpo {
     background-color: #DCE1E3;
 }
