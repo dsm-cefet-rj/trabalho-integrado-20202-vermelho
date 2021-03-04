@@ -8,18 +8,20 @@ export default props => {
             <div className="cria-refeicao-titulo">
             <h3>Criar Refeição</h3>
             </div>
-            
+            <br/>
             <form>
                 <div className="form-group">
                     <label for="formGroupExampleInput">Nome: </label>
+                    <br/>
                     <input type="text" className="form-control" id="formGroupExampleInput" placeholder=""/>
                 </div>
-
+                <br/>
                 <div className="form-group">
                     <label for="formGroupExampleInput2">Tipo: </label>
+                    <br/>
                     <input type="text" className="form-control" id="formGroupExampleInput2" placeholder=""/>
                 </div>
-
+                <br/>
                 <div className="botoes">
                     <button type="button" onclick="window.location.href = 'cria-cardapio.html'" className="btn btn-primary"><div className="botao">Cria</div></button>
                     <button type="button" onclick="" className="btn btn-danger"><div className="botao">Cancela</div></button>

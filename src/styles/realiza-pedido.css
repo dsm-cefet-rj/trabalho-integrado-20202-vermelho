@@ -6,8 +6,10 @@
 }
 
 .realiza-pedido-titulo h3 {
-    margin-left: 5vw;
     font-size: 5vw;
+    margin-top: 0vw;
+    padding-top: 3vw;
+    padding-left: 2vw;
 }
 
 .pedido {

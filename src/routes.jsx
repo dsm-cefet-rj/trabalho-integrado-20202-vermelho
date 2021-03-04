@@ -11,8 +11,8 @@ export default props => {
 
     return(
         <Router>
-            <Route exact path='/'>
-                <Cardapio></Cardapio>
+            <Route exact path='/realiza-pedido'>
+                <RealizaPedido/>
             </Route>
        
             <Route exact path = '/cardapio'>

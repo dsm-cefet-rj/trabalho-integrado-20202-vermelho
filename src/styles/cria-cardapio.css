@@ -7,9 +7,10 @@
 }
 
 .cria-cardapio-titulo h3 {
-    color: black;
     font-size: 5vw;
-    margin-left: 1vw;
+    margin-top: 0vw;
+    padding-top: 3vw;
+    padding-left: 2vw;
 }
 
 #main {

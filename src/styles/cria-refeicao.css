@@ -8,7 +8,14 @@
 
 .cria-refeicao-titulo h3 {
     font-size: 5vw;
-    margin-left: 1vw;
+    margin-top: 0vw;
+    padding-top: 3vw;
+    padding-left: 2vw;
+}
+
+#cria-refeicao {
+    background-color: #DCDCDC;
+    min-height: 100vh;
 }
 
 #main {
