@@ -1,8 +1,10 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'; // Hook que irei usar para passar o path
 
-import '../styles/pedidos-recebidos.css'
+import '../styles/PedidosRecebidos.css'
 
 export default props => {
+    const history = useHistory(); // Para cria a rota no botão
 
     return (
         
@@ -63,7 +65,7 @@ export default props => {
 
        <br/>
        <div className="botoes">
-           <button type="button" className="btn btn-success"><div className="botao">Pronto!</div></button>
+           <button type="button" onClick='' className="btn btn-success"><div className="botao">Pronto!</div></button>
            <button type="button" className="btn btn-secondary"><div className="botao">Preparando...</div></button>
        </div>
    </div>

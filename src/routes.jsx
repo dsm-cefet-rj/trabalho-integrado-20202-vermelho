@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 
-import Cardapio from './components/cardapio';
-import CriaCardapio from './components/cria-cardapio'
-import CriaRefeicao from './components/cria-refeicao'
-import PedidosRecebidos from './components/pedidos-recebidos'
-import RealizaPedido from './components/realiza-pedido'
+import Cardapio from './components/Cardapio';
+import CriaCardapio from './components/CriaCardapio'
+import CriaRefeicao from './components/CriaRefeicao'
+import PedidosRecebidos from './components/PedidosRecebidos'
+import RealizaPedido from './components/RealizaPedido'
 
 export default props => {
 
