@@ -2,7 +2,6 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import { Link } from 'react-router-dom';
 
 import './Menu.css';
 
@@ -16,6 +15,7 @@ export default function SimpleMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
 
   return (
     <div className="Menu">
@@ -34,7 +34,6 @@ export default function SimpleMenu() {
         <MenuItem onClick={handleClose}><a href='/realiza-pedido'>Fazer Pedido</a></MenuItem>
         <MenuItem onClick={handleClose}><a href='/cria-refeicao'>Criar Refeição</a></MenuItem>
         <MenuItem onClick={handleClose}> <a href='/pedidos-recebidos'> Pedidos </a></MenuItem>
-
       </Menu>
     </div>
   );

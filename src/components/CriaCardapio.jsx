@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'; // Hook que irei usar para passar o path
 
 import '../styles/CriaCardapio.css'
 
 export default props => {
     const history = useHistory(); // Para criar a rota no botão
+
+    const [entrada1,setEntrada1] = useState("")
+    const [entrada2,setEntrada2] = useState("")
+    const [entrada3,setEntrada3] = useState("")
+    const [entrada4,setEntrada4] = useState("")
+    const [entrada5,setEntrada5] = useState("")
+
+
+
 
     return(
     <div id="cria-cardapio">
@@ -34,13 +43,13 @@ export default props => {
              <div className="form-group">
                  <label for="exampleFormControlTextarea1">Descrição:</label>
                  <br/>
-                 <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                 <textarea className="form-control-desc" id="exampleFormControlTextarea1" rows="3"></textarea>
              </div>
             <br/>
              <div className="form-group col-md-2">
                  <label for="inputZip">Valor: </label>
                  <br/>
-                 <input type="text" className="form-control" id="inputZip"/>
+                 <input type="number" className="form-control-2" id="inputZip"/>
              </div>
             <br/>
              <div className="botoes">
