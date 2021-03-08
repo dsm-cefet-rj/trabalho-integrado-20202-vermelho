@@ -6,14 +6,11 @@ import '../styles/CriaCardapio.css'
 export default props => {
     const history = useHistory(); // Para criar a rota no botão
 
-    const [entrada1,setEntrada1] = useState("")
-    const [entrada2,setEntrada2] = useState("")
-    const [entrada3,setEntrada3] = useState("")
-    const [entrada4,setEntrada4] = useState("")
-    const [entrada5,setEntrada5] = useState("")
-
-
-
+    const [nome,setNome] = useState("")
+    const [tipo,setTipo] = useState("")
+    const [refeicao,setRefeicao] = useState("")
+    const [descricao,setDescricao] = useState("")
+    const [preco,setPreco] = useState(0)
 
     return(
     <div id="cria-cardapio">
@@ -49,7 +46,7 @@ export default props => {
              <div className="form-group col-md-2">
                  <label for="inputZip">Valor: </label>
                  <br/>
-                 <input type="number" className="form-control-2" id="inputZip"/>
+                 <input type="number" onChange={(e) => setPreco(preco + e)} value={preco} className="form-control-2" id="inputZip"/>
              </div>
             <br/>
              <div className="botoes">
