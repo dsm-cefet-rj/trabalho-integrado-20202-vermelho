@@ -9,7 +9,7 @@ export default props => {
 <div id= "pedidos-recebidos">
     
     <div className="pedidos-recebidos-titulo">
-       <h3>Pedidos Recebidos</h3>
+       <h3>Pedidos Recebidos</h3>   
    </div>
 
 
