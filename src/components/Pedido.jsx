@@ -7,7 +7,7 @@ export default props => {
     return(
         <div className="pedido">
             <div className="cabecalho">
-                <h1>#{props.numero}</h1>
+                <div>#{props.numero}</div>
                 <h1>Quarto: {props.quarto}</h1>
             </div>
             

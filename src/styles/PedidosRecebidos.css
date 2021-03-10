@@ -1,6 +1,6 @@
 .pedidos-recebidos-titulo {
     height: 12vw;
-    color: #12232E;
+    color: black;
     font-size: 10vw;
     background-color: rgb(139, 201, 236);
 }
@@ -18,7 +18,8 @@
 }
 
 .refresh {
-    font-size: 5vw;
+    font-size: 5vw; 
+    border-style:none;
     border-color: black;
     margin-left: 20vw;
     color: black;
