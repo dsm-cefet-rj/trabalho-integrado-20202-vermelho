@@ -1,0 +1,44 @@
+
+.pedido {
+    margin-top: 3vw;
+    border:4px solid #001B48;
+}
+.total {
+    font-size: 5vw;
+}
+.detalhes {
+    font-size: auto;
+
+}
+
+.cabecalho h1 {
+    color: #DCE1E3;
+    font-size: 5vw;
+}
+.cabecalho {
+    border-bottom: 1vw solid #001B48;
+    background-color: #001B48;
+}
+
+ul li{
+    font-size: 5vw;
+}
+ul{
+    list-style-type: none;
+}
+.botoes {
+    text-align: center;
+    margin-bottom: 2vw;
+}
+
+.botao {
+    font-size: 5vw;
+}
+
+#main {
+    border-bottom: 0.5vw solid #001B48;
+}
+
+#corpo {
+    background-color: rgb(139, 201, 236);
+}
