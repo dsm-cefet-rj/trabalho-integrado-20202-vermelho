@@ -1,15 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import Pedido from './Pedido.jsx'
+import PedidosEx from '../PedidosEx'
 
 import '../styles/PedidosRecebidos.css'
 
 export default props => {
+
+    const [objetos, setObjeto] = useState("")
+
+    const Atualiza = () => { // Funcao atualiza irá jogar cada objetos em pedidos
+        const [...pedidos]= PedidosEx // spread vai pegar cada objeto
+
+        setObjeto(pedidos)
+
+        
+    }
 
     return (
         
 <div id= "pedidos-recebidos">
     
     <div className="pedidos-recebidos-titulo">
-       <h3>Pedidos Recebidos</h3>
+       <h3>Pedidos Recebidos <button className='refresh' onClick={() => Atualiza()}>Atualizar</button></h3>
+       <div></div>
    </div>
 
 
@@ -67,7 +81,6 @@ export default props => {
            <button type="button" className="btn btn-secondary"><div className="botao">Preparando...</div></button>
        </div>
    </div>
-
    <br/>
  </div>
 

@@ -17,6 +17,14 @@
     min-height: 100vh;
 }
 
+.refresh {
+    font-size: 5vw;
+    border-color: black;
+    margin-left: 20vw;
+    color: black;
+    background-color: rgb(139, 201, 236);
+}
+
 .pedido {
     margin-top: 3vw;
     border:4px solid #001B48;
