@@ -23,6 +23,16 @@
     height: 10vw;
 }
 
+#cria-cardapio .form-control-2 {
+    width: 40vw;
+    height: 10vw;
+}
+
+#cria-cardapio .form-control-desc {
+    width: 85vw;
+    height: 30vw;
+}
+
 .formularios {
     padding: 5vw;
 }

@@ -1,8 +1,10 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'; // Hook que irei usar para passar o path
 
-import '../styles/cardapio.css'
+import '../styles/Cardapio.css'
 
 export default props => {
+    const history = useHistory(); // Para cria a rota no botão
 
     return (
     <div id="cardapio">
@@ -25,7 +27,7 @@ export default props => {
         </form>
         <br/>
         <div class="botoes">
-            <button type="button" onclick="window.location.href = 'realiza-pedido.html'" class="btn btn-primary"><div class="botao">Ir para Pedido</div></button>
+            <button type="button" onClick={() => history.push('/realiza-pedido')} class="btn btn-primary"><div class="botao">Ir para Pedido</div></button>
             <button type="button" className="btn btn-danger"><div className="botao">Limpar</div></button>
         </div>
     </div>
