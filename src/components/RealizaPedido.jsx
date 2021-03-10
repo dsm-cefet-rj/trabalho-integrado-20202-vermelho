@@ -8,7 +8,6 @@
 
     const [quarto,setQuarto] = useState("")
 
-
     return (
         
     <div id= "realiza-pedido">
