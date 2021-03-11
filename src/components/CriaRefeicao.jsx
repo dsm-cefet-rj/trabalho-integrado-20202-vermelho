@@ -31,8 +31,10 @@ export default props => {
                 </div>
                 <br/>
                 <div className="botoes">
-                    <button type="button" onClick={() => history.push('/cardapio')} className="btn btn-primary"><div className="botao">Cria</div></button>
-                    <button type="button" onClick={() => history.push('/cardapio')} className="btn btn-danger"><div className="botao">Cancela</div></button>
+                    <button type="button" onClick={() => history.push('/cardapio')} className="btn btn-primary" id = "cria">
+                        <div className="botao">Cria</div></button>
+                    <button type="button" onClick={() => history.push('/cardapio')} className="btn btn-danger" id="cancela">
+                        <div className="botao">Cancela</div></button>
                 </div>
             </form>
     </div>

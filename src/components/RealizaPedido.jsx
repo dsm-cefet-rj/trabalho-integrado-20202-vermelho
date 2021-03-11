@@ -45,10 +45,10 @@
     <br/>
 
     <div className="botoes">
-        <button type="button" className="btn btn-primary"
+        <button type="button" className="btn btn-primary" id= "pedir"
         onClick={() => history.push('/cardapio')}><div className="botao">Pedir</div></button>
 
-        <button type="button" className="btn btn-danger" 
+        <button type="button" className="btn btn-danger" id = "cancela"
         onClick={() => history.push('/cardapio')}> <div className="botao">Cancela</div></button>
     </div>
 

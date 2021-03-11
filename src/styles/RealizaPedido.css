@@ -45,6 +45,14 @@
     font-size: 5vw;
 }
 
+.botoes #pedir {
+    margin-right: 7vw;
+}
+
+.botoes #cancela {
+    margin-left: 7vw;
+}
+
 .quarto {
     font-size: 5vw;
 }

@@ -61,10 +61,10 @@ export default props => {
              </div>
             <br/>
              <div className="botoes">
-                <button type="button" className="btn btn-primary" onClick={() => history.push('/cardapio')}>
+                <button type="button" className="btn" id="criar" onClick={() => history.push('/cardapio')}>
                      <div className="botao">Criar</div>
-                    </button>
-                <button type="button" className="btn btn-danger" onClick={() => Limpar()}>
+                </button>
+                <button type="button" className="btn" id="limpar" onClick={() => Limpar()}>
                      <div className="botao">Limpar</div>
                 </button>
              </div>  

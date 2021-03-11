@@ -1,3 +1,7 @@
+:root{
+--color-gray: rgb(117, 117, 117)
+}
+
 .cria-cardapio-titulo {
     height: 12vw;
     background-color: rgb(139, 201, 236);
@@ -41,13 +45,40 @@
     text-align: center;
 }
 
+.btn {
+    border-style: solid;
+    border-radius: 2vw;
+    border-width: 0.2vw;
+    border-color: var(--color-gray);
+}
 
 .botao {
+    font-style: italic;
     font-size: 5vw;
+    color: black;
+
+    padding-inline: 6vw;
+    padding-bottom: 1vw;
+    padding-top: 1vw;
+}
+
+.botoes #criar {
+    margin-right: 7vw;
+}
+
+.botoes #limpar {
+    margin-left: 7vw;
 }
 
 label {
     color: #12232E;
     font-size:5vw;
     margin-left: 1vw;
+}
+
+input, textarea {
+    border-radius: 2vw ;
+    border-width: 0.2vw;
+    border-style: solid;
+    border-color: var(--color-gray)
 }

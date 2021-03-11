@@ -45,6 +45,9 @@
     font-size: 5vw;
 }
 
+.botoes #cria {
+    margin-right: 7vw;
+}
 
 label {
     color: #12232E;

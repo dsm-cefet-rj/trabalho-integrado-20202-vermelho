@@ -1,50 +1,40 @@
-import React, { useState, useEffect } from 'react'
-import PedidosEx from '../PedidosEx'
+import React from 'react'
 
 import '../styles/Pedido.css'
 
 export default props => {
+    const a = props.pedidos
+    let pedidos = a.map(pedidos =>
+        <li>{pedidos}</li>)
 
+        return (
+            <div className="pedido">
+                <div className="cabecalho">
+                    <div>#{props.numero}</div>
+                    <h1>Quarto: {props.quarto}</h1>
+                </div>
 
+                <div className="detalhes">
+                    <ul>
+                        {pedidos}
+                    </ul>
+                </div>
 
-    const Finalizado = () => {
-        PedidosEx.filter( pedido => {
-            return pedido.numero != props.numero
-        })
-    }
-
-   /* useEffect(() => {
-        PedidosEx.filter( pedido => {
-            if(pedido.numero != props.numero){
-                return pedido
-            }
-        })
-    }, [pronto])
-*/
-    return(
-        <div className="pedido">
-            <div className="cabecalho">
-                <div>#{props.numero}</div>
-                <h1>Quarto: {props.quarto}</h1>
-            </div>
-            
-            <div className="detalhes">
-                <ul>
-                    {props.pedidos}
-                </ul>
-            </div>
-
-            <div className="total">
-                Total:
+                <div className="total">
+                    Total:
                 R$ {props.total}
-            </div>
-            
-            <br/>
+                </div>
 
-            <div className="botoes">
-                <button type="button" className="btn btn-success" onClick={() => Finalizado()}><div className="botao">Pronto!</div></button>
-                <button type="button" className="btn btn-secondary"><div className="botao">Preparando...</div></button>
+                <br />
+
+                <div className="botoes">
+                    <button type="button" className="btn btn-success" onClick={props.lidaPronto} id="pronto">
+                        <div className="botao">Pronto!</div>
+                    </button>
+                    <button type="button" className="btn btn-secondary" id="preparando">
+                        <div className="botao">Preparando...</div>
+                    </button>
+                </div>
             </div>
-        </div>
-    )
+        )
 }
