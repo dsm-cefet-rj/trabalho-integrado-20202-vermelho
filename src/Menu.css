@@ -1,4 +1,6 @@
 .Menu {
+    display: flex;
+
     background-color:black;
 }
 
@@ -8,6 +10,21 @@
     padding-right: 2vw;
     border-right-style: groove;
     border-width: 0.2vw;
+}
+
+#titulo {
+    color: white;
+    font-style: oblique;
+
+    padding-top: 5vw;
+    padding-left: 5vw;
+}
+
+img {
+    width: 15vw;
+    height: 7vh;
+
+    margin-left: 10vw;
 }
 
 a {

@@ -19,9 +19,15 @@ export default function SimpleMenu() {
 
   return (
     <div className="Menu">
+      
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
         <div className='menu-texto'>Menu</div>
       </Button>
+        <div id= "titulo">Hotelaria 5 Estrelas!</div>
+      <div id="imagem">
+        <img src="/images/hotelaria-slogan.jpg"></img>
+      </div>
+      
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}

@@ -25,9 +25,10 @@ export default props => {
                 </select>
             </div>
         </form>
+
         <br/>
-        <div class="botoes">
-            <button type="button" onClick={() => history.push('/realiza-pedido')} class="btn btn-primary" id="irpedido"><div class="botao">Ir para Pedido</div></button>
+        <div className="botoes">
+            <button type="button" onClick={() => history.push('/realiza-pedido')} className="btn btn-primary" id="irpedido"><div className="botao">Ir para Pedido</div></button>
             <button type="button" className="btn btn-danger" id="limpar"><div className="botao">Limpar</div></button>
         </div>
     </div>
