@@ -15,23 +15,36 @@ export default props => {
     }*/
 
     const Renderiza = pedido => {
-        return(
-            
-        <Pedido numero = {pedido.numero} quarto = {pedido.quarto} pedidos = {pedido.pedidos}
-        total = {pedido.total} pronto = {pedido.pronto}></Pedido>
-        )
+
+        const [pedidoState, setPedidoState] = useState({
+            pedidos: pedido
+        })
+
+        const lidaPronto = () => {
+            setPedidoState({
+                pedidos: pedido
+            },
+                pedidoState.pedidos.pronto = !pedidoState.pedidos.pronto
+            )
+        }
+        if (!pedidoState.pedidos.pronto) {
+            return (
+                <Pedido numero={pedidoState.pedidos.numero} quarto={pedidoState.pedidos.quarto} pedidos={pedidoState.pedidos.pedidos}
+                    total={pedidoState.pedidos.total} pronto={pedidoState.pedidos.pronto} lidaPronto={lidaPronto}></Pedido>
+            )
+        }
     }
 
     return (
-        <div id= "pedidos-recebidos">
+        <div id="pedidos-recebidos">
             <div className="pedidos-recebidos-titulo">
-            <h3>Pedidos Recebidos <button className='refresh'>Atualizar</button></h3>
-        </div>
-        
-        <div>
-            {PedidosEx.map(Renderiza)}
-        </div>
-        <br/>
+                <h3>Pedidos Recebidos <button className='refresh'>Atualizar</button></h3>
+            </div>
+
+            <div>
+                {PedidosEx.map(Renderiza)}
+            </div>
+            <br />
         </div>
 
     )
