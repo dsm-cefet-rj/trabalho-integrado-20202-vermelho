@@ -28,10 +28,15 @@ export default props => {
                 <br />
 
                 <div className="botoes">
-                    <button type="button" className="btn btn-success" onClick={props.lidaPronto} id="pronto">
+                    <button type="button" 
+                            className="btn btn-success" 
+                            onClick={props.lidaPronto} 
+                            id="pronto">
                         <div className="botao">Pronto!</div>
                     </button>
-                    <button type="button" className="btn btn-secondary" id="preparando">
+                    <button type="button" 
+                            className="btn btn-secondary" 
+                            id="preparando">
                         <div className="botao">Preparando...</div>
                     </button>
                 </div>
