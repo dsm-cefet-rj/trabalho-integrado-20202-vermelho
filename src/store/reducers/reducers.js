@@ -9,7 +9,7 @@ const initialState = {
         nome_cardapio: "",
         tipo_cardapio: "",
         refeicao_cardapio: "",
-        descricao_cardapio:"",
+        descricao_cardapio:"Escrava aqui!",
         preco_cardapio:0,
 }
 

@@ -14,6 +14,14 @@ function CriaCardapio(props) {
 
     const { nome, tipo, refeicao, descricao, preco } = props;
 
+    const limpar = () => (
+        props.alteraNome(""),
+        props.alteraTipo(""),
+        props.alteraRefeicao(""),
+        props.alteraDescricao("Escrava aqui!"),
+        props.alteraPreco(0)
+    )
+
 
     return(
     <div id="cria-cardapio">
@@ -59,7 +67,7 @@ function CriaCardapio(props) {
                 <button type="button" className="btn" id="criar" onClick={() => history.push('/cardapio')}>
                      <div className="botao">Criar</div>
                 </button>
-                <button type="button" className="btn" id="limpar">
+                <button type="button" className="btn" id="limpar" onClick={() => limpar()}>
                      <div className="botao">Limpar</div>
                 </button>
              </div>  
