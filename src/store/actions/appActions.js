@@ -36,3 +36,10 @@ export const alteraTipoRefeicao = (novoTipo) => ({
     type: 'TIPOR_ALTERADO',
     payload: novoTipo
 })
+
+
+// Realiza Pedido
+export const alteraNumeroQuarto = (novoQuarto) => ({
+    type: 'QUARTORP_ALTERADO',
+    payload: novoQuarto
+})

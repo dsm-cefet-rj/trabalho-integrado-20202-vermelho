@@ -3,11 +3,13 @@ import { createStore, combineReducers } from 'redux' // 2ª funcao que pega todo
 
 import cardapioReducer from './reducers/criacardapio'
 import criarefeicaoReducer from './reducers/criarefeicao'
+import realizaPedidoReducer from './reducers/realizapedido'
 
 // store
 const reducers = combineReducers({
     cardapio: cardapioReducer,
-    refeicao: criarefeicaoReducer
+    refeicao: criarefeicaoReducer,
+    realiza: realizaPedidoReducer
 })
 
 
