@@ -1,11 +1,13 @@
 // Usaremos combineReducers para gerar a nossa store a partir dos reducers
 import { createStore, combineReducers } from 'redux' // 2ª funcao que pega todos os reducers e gera a store
 
-import cardapioReducer from './reducers/reducers'
+import cardapioReducer from './reducers/criacardapio'
+import criarefeicaoReducer from './reducers/criarefeicao'
 
 // store
 const reducers = combineReducers({
-    cardapio: cardapioReducer
+    cardapio: cardapioReducer,
+    refeicao: criarefeicaoReducer
 })
 
 

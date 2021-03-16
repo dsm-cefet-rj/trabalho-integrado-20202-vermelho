@@ -23,3 +23,16 @@ export const alteraPrecoCardapio = (novoPreco) => ({
     type: 'PRECOC_ALTERADO',
     payload: novoPreco
 })
+
+
+
+// Cria Refeicao
+export const alteraNomeRefeicao = (novoNome) => ({
+    type: 'NOMER_ALTERADO',
+    payload: novoNome
+})
+
+export const alteraTipoRefeicao = (novoTipo) => ({
+    type: 'TIPOR_ALTERADO',
+    payload: novoTipo
+})

@@ -44,4 +44,4 @@ export default function(state = initialState, action) { // reducer sempre recebe
         default:           
             return state
     }
-} 
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'; // Hook que irei usar para passar o path
 
 import { connect } from 'react-redux' // Conexa ao redux
@@ -18,7 +18,7 @@ function CriaCardapio(props) {
         props.alteraNome(""),
         props.alteraTipo(""),
         props.alteraRefeicao(""),
-        props.alteraDescricao("Escrava aqui!"),
+        props.alteraDescricao("Escreva aqui!"),
         props.alteraPreco(0)
     )
 
