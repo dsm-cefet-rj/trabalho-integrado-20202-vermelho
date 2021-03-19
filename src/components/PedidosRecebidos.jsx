@@ -3,27 +3,36 @@ import React, { useState } from 'react'
 import Pedido from './Pedido.jsx'
 import PedidosEx from '../PedidosEx'
 
+import { connect } from 'react-redux' // Conexa ao redux
+
+import { alterapedidoState } from '../store/actions/appActions'
+
 import '../styles/PedidosRecebidos.css'
 
-export default props => {
+function PedidosRecebidos(props) {
 
     /*
     const Atualiza = () => { // Funcao atualiza irá jogar cada objeto em pedidos e depois 'objetos'
         const [...pedidos]= PedidosEx // spread vai pegar cada objeto
         setObjeto(pedidos); // Será armazenado na variável local 'objetos'       
     }*/
+    const { pedidoState } = props
+
+    props.alteraPedido({ola: 'hahaha'})
 
     const Renderiza = pedido => {
-
-        const [pedidoState, setPedidoState] = useState({
+        // Cria uma variavel local pedidoState, que tem uma chave pedidos que recebe os valores no objetos pedido
+        // A função lidaPronto muda o valor em 'pronto' de FALSE para TRUE
+        // SE pronto for FALSE as props são passadas para o componente filho
+        props.alteraPedido({
             pedidos: pedido
         })
-
+        console.log(props.pedidoState)
         const lidaPronto = () => {
-            setPedidoState({
+            props.alteraPedido({
                 pedidos: pedido
             },
-                pedidoState.pedidos.pronto = !pedidoState.pedidos.pronto
+                pedidoState.pedidos.pronto = !pedidoState.pedidos.pronto,
             )
         }
         if (!pedidoState.pedidos.pronto) {
@@ -48,3 +57,22 @@ export default props => {
 
     )
 }
+
+function MapStateToProps (state) {
+    return {
+        pedidoState: state.pedidos.pedidoState,
+    }
+}
+
+function mapDispatchToProps (dispatch) {
+    return {
+        alteraPedido(pedido){
+            const action = alterapedidoState(pedido)
+            dispatch(action)
+        }
+    }
+}
+
+export default connect(MapStateToProps,
+                mapDispatchToProps)(PedidosRecebidos)
+

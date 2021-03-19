@@ -43,3 +43,9 @@ export const alteraNumeroQuarto = (novoQuarto) => ({
     type: 'QUARTORP_ALTERADO',
     payload: novoQuarto
 })
+
+// PedidosRecebidos
+export const alterapedidoState = (novopedidoState) => ({
+    type: 'PEDIDOSSTATEPR_ALTERADO',
+    payload: novopedidoState
+})

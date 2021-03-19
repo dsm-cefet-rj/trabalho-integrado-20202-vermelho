@@ -4,6 +4,8 @@ import '../styles/Pedido.css'
 
 export default props => {
     const a = props.pedidos
+
+    // Um map em pedidos que é recebido pelas props (sendo o conteudo, alimentos) para serem listados
     let pedidos = a.map(pedidos =>
         <li>{pedidos}</li>)
 

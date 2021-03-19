@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'; // Hook que irei usar para passar o path
 
 import { connect } from 'react-redux' // Conexa ao redux
-// NÃO gero Action Creator direto no JSX!
+
 import { alteraNomeCardapio, alteraTipoCardapio,
         alteraRefeicaoCardapio, alteraDescricaoCardapio,
         alteraPrecoCardapio } from '../store/actions/appActions'; // Importando action creators
