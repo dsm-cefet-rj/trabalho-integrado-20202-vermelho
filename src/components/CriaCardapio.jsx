@@ -1,25 +1,41 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'; // Hook que irei usar para passar o path
 
-import { connect } from 'react-redux' // Conexa ao redux
-
-import { alteraNomeCardapio, alteraTipoCardapio,
-        alteraRefeicaoCardapio, alteraDescricaoCardapio,
-        alteraPrecoCardapio } from '../store/actions/appActions'; // Importando action creators
+// Redux da maneira nova
+import { useSelector, useDispatch } from 'react-redux';
 
 import '../styles/CriaCardapio.css'
 
-function CriaCardapio(props) {
+export default function CriaCardapio(props) {
     const history = useHistory(); // Para criar a rota no botão
 
-    const { nome, tipo, refeicao, descricao, preco } = props;
+    //useSelector pega os estados sem precisar de connect
+    const { nome, tipo, refeicao, descricao, preco } = useSelector(state => state.cardapio)
+    console.log(descricao)
+    const dispatch = useDispatch();
+
+    function alteraNome(e) {
+        dispatch({ type:'NOMEC_ALTERADO', payload: e})
+    }
+    function alteraTipo(e) {
+        dispatch({ type:'TIPOC_ALTERADO', payload: e})
+    }
+    function alteraRefeicao(e) {
+        dispatch({ type:'REFEICAOC_ALTERADO', payload: e})
+    }
+    function alteraDescricao(e) {
+        dispatch({ type:'DESCRICAOC_ALTERADO', payload: e})
+    }
+    function alteraPreco(e) {
+        dispatch({ type:'PRECOC_ALTERADO', payload: e})
+    }
 
     const limpar = () => (
-        props.alteraNome(""),
-        props.alteraTipo(""),
-        props.alteraRefeicao(""),
-        props.alteraDescricao("Escreva aqui!"),
-        props.alteraPreco(0)
+        alteraNome(""),
+        alteraTipo(""),
+        alteraRefeicao(""),
+        alteraDescricao("Escreva aqui!"),
+        alteraPreco(0)
     )
 
 
@@ -34,33 +50,33 @@ function CriaCardapio(props) {
                  <label for="formGroupExampleInput">Nome: </label>
                  <br/>
                  <input type="text" className="form-control" id="formGroupExampleInput" 
-                 onChange={(e) => props.alteraNome(e.target.value)} value={nome} placeholder=""/>
+                 onChange={(e) => alteraNome(e.target.value)} value={nome} placeholder=""/>
              </div>
             <br/>
              <div className="form-group">
                  <label for="formGroupExampleInput2">Tipo: </label>
                  <br/>
                  <input type="text" className="form-control" id="formGroupExampleInput2"
-                 onChange={(e) => props.alteraTipo(e.target.value)} value={tipo} placeholder=""/>
+                 onChange={(e) => alteraTipo(e.target.value)} value={tipo} placeholder=""/>
              </div>
             <br/>
              <div className="form-group">
                  <label for="formGroupExampleInput2">Refeição: </label>
                  <br/>
                  <input type="text" className="form-control" id="formGroupExampleInput2" 
-                 onChange={(e) => props.alteraRefeicao(e.target.value)} value={refeicao} placeholder=""/>
+                 onChange={(e) => alteraRefeicao(e.target.value)} value={refeicao} placeholder=""/>
              </div>
             <br/>
              <div className="form-group">
                  <label for="exampleFormControlTextarea1">Descrição:</label>
                  <br/>
-                 <textarea className="form-control-desc" onChange={(e) => props.alteraDescricao(e.target.value)} value={descricao} id="exampleFormControlTextarea1" rows="3"></textarea>
+                 <textarea className="form-control-desc" onChange={(e) => alteraDescricao(e.target.value)} value={descricao} id="exampleFormControlTextarea1" rows="3"></textarea>
              </div>
             <br/>
              <div className="form-group col-md-2">
                  <label for="inputZip">Valor: </label>
                  <br/>
-                 <input type="number" onChange={(e) => props.alteraPreco(e.target.value)} value={preco} className="form-control-2" id="inputZip"/>
+                 <input type="number" onChange={(e) => alteraPreco(e.target.value)} value={preco} className="form-control-2" id="inputZip"/>
              </div>
             <br/>
              <div className="botoes">
@@ -75,7 +91,7 @@ function CriaCardapio(props) {
     </div>
 )
 }
-
+/*
 function mapStateToProps(state) {
     return {
         nome: state.cardapio.nome_cardapio,
@@ -109,10 +125,4 @@ function mapDispatchToProps(dispatch) { // Chama o action creator
             dispatch(action)
         }
     }
-}
-
-
-export default connect(
-            mapStateToProps,
-            mapDispatchToProps
-)(CriaCardapio) 
+}*/

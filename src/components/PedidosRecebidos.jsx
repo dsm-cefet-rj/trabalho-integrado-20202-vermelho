@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
 import Pedido from './Pedido.jsx'
-import PedidosEx from '../PedidosEx'
+import PedidosEx from '../../db.json/PedidosEx'
 
-import { connect } from 'react-redux' // Conexa ao redux
+import { connect } from 'react-redux' // Conexao ao redux
 
 import { alterapedidoState } from '../store/actions/appActions'
 
