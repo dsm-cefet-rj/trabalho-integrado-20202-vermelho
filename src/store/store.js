@@ -1,17 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import cardapio from './store/reducers/cardapioSlice'
-import refeicao from './store/reducers/refeicaoSlice'
-import realizapedido from './store/reducers/realizapedido'
-import pedidos from './store/reducers/pedidos'
+import cardapio from './reducers/cardapioSlice'
+import refeicao from './reducers/refeicaoSlice'
+import realizapedido from './reducers/realizapedidoSlice'
+import pedidosrecebidos from './reducers/pedidosrecebidosSlice'
 
 
 // store
 export const store = configureStore({
-    reducers = combineReducers({
+    reducer : {
         cardapio,
         refeicao,
         realizapedido,
-        pedidos,
-    })
+        pedidosrecebidos,
+    }
 })

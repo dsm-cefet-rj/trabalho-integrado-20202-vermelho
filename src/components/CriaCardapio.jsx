@@ -12,35 +12,18 @@ export default function CriaCardapio(props) {
     const history = useHistory(); // Para criar a rota no botão
 
     //useSelector pega os estados sem precisar de connect
-    const cardapio = useSelector(state => state.cardapio) // Pega 1 vetor com valores da store
+    const cardapio = useSelector(state => state.cardapio) // Pega 1 objeto com valores da store
     const dispatch = useDispatch();
 
-
-    /*
-    function alteraNome(e) {
-        dispatch({ type:'NOMEC_ALTERADO', payload: e})
-    }
-    function alteraTipo(e) {
-        dispatch({ type:'TIPOC_ALTERADO', payload: e})
-    }
-    function alteraRefeicao(e) {
-        dispatch({ type:'REFEICAOC_ALTERADO', payload: e})
-    }
-    function alteraDescricao(e) {
-        dispatch({ type:'DESCRICAOC_ALTERADO', payload: e})
-    }
-    function alteraPreco(e) {
-        dispatch({ type:'PRECOC_ALTERADO', payload: e})
-    } */
-/*
+    const { nome, tipo, refeicao, descricao, preco } = cardapio
+   
     const limpar = () => (
-        alteraNome(""),
-        alteraTipo(""),
-        alteraRefeicao(""),
-        alteraDescricao("Escreva aqui!"),
-        alteraPreco(0)
+        dispatch(alteraNome("")),
+        dispatch(alteraTipo("")),
+        dispatch(alteraRefeicao("")),
+        dispatch(alteraDescricao("Escreva aqui!")),
+        dispatch(alteraPreco(0))
     )
-*/
 
     return(
     <div id="cria-cardapio">
@@ -94,38 +77,3 @@ export default function CriaCardapio(props) {
     </div>
 )
 }
-/*
-function mapStateToProps(state) {
-    return {
-        nome: state.cardapio.nome_cardapio,
-        tipo: state.cardapio.tipo_cardapio,
-        refeicao: state.cardapio.refeicao_cardapio,
-        descricao: state.cardapio.descricao_cardapio,
-        preco: state.cardapio.preco_cardapio,
-    }
-}
-
-function mapDispatchToProps(dispatch) { // Chama o action creator
-    return {
-        alteraNome(novoNome) {
-            const action = alteraNomeCardapio(novoNome)
-            dispatch(action)
-        },
-        alteraTipo(novoTipo) {
-            const action = alteraTipoCardapio(novoTipo)
-            dispatch(action)
-        },
-        alteraRefeicao(novaRefeicao) {
-            const action = alteraRefeicaoCardapio(novaRefeicao)
-            dispatch(action)
-        },
-        alteraDescricao(novaDescricao) {
-            const action = alteraDescricaoCardapio(novaDescricao)
-            dispatch(action)
-        },
-        alteraPreco(novoPreco) {
-            const action = alteraPrecoCardapio(novoPreco)
-            dispatch(action)
-        }
-    }
-}*/

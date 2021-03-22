@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'; // Hook que irei usar para passar o path
-import cardapiosEx from '../exemplos/cardapiosEx'
+import cardapiosEx from '../exemplos/cardapiosEx.js'
 
 import '../styles/Cardapio.css'
 

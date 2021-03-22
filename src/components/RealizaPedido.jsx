@@ -2,7 +2,7 @@
  import { useHistory } from 'react-router-dom'; // Hook que irei usar para passar o path
 
  import { useDispatch, useSelector } from 'react-redux'
- import { alteraQuarto } from '../store/actions/appActions'
+ import { alteraQuarto } from '../store/reducers/realizapedidoSlice'
 
  import '../styles/RealizaPedido.css'
 

@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 // Integração com o Redux
 import { Provider } from 'react-redux' // Componente que irá integrar react-redux envolvendo a aplicação
-import store from './store/store'
+import { store } from './store/store'
 
 ReactDOM.render(
   <Provider store = {store}> 

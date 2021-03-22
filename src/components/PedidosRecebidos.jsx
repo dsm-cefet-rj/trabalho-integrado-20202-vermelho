@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import Pedido from './Pedido.jsx'
-import PedidosEx from '../../db.json/PedidosEx'
+//import PedidosEx from '../../db.json/PedidosEx'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { alterapedidoState } from '../store/reducers/pedidosSlice'
+import { alterapedidoState } from '../store/reducers/pedidosrecebidosSlice'
 
 import '../styles/PedidosRecebidos.css'
 
@@ -50,7 +50,7 @@ export default function PedidosRecebidos(props) {
             </div>
 
             <div>
-                {PedidosEx.map(Renderiza)}
+                {pedidos.map(Renderiza)}
             </div>
             <br />
         </div>
