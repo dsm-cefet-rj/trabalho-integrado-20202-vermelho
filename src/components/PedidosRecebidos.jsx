@@ -9,18 +9,18 @@ import { alteraPedidos } from '../store/reducers/pedidosrecebidosSlice'
 import '../styles/PedidosRecebidos.css'
 
 export default function PedidosRecebidos(props) {
-    const pedidosRecebidos = useSelector(state => state.pedidosrecebidos)
-    const { pedidos } = pedidosRecebidos
-    console.log(pedidosRecebidos)
-    console.log(pedidos)
+    const pedidos = useSelector(state => state.pedidosrecebidos)
     const dispatch = useDispatch()
 
 
     const Renderiza = pedido => {
+
         // Resumidamente, o map irá pegar um objeto que será passado para pedidos cada vez que a funcao for chamada
         dispatch(alteraPedidos)({ // armazena localmanete os dados da consulta no bd para passar pras props
             pedidos: pedido // Valor sera o objeto do map
         })
+        console.log(pedidos)
+
 
         const lidaPronto = () => { // A funcao pronto muda o estado do pedido alterando apenas 'pronto'
             dispatch(alteraPedidos({

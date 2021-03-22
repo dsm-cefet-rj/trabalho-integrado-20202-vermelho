@@ -8,7 +8,7 @@ export const fetchPedidos = createAsyncThunk('pedidosrecebidos/fetchPedidos',
         return await( await fetch('http://localhost:3000/pedidosEx')).json() // await da promisse e do .json
     })
 
-function fullfillPedidosRecebidosReducer(pedidosState, pedidosFetched){
+function fulfillPedidosRecebidosReducer(pedidosState, pedidosFetched){
     return pedidosFetched
 }
 
@@ -19,9 +19,9 @@ export const pedidosrecebidosSlice = createSlice({ // retorna um objeto que cont
     reducers: { 
         alteraPedido: (state, action) => ({...state, pronto: action.payload})
      }, 
-    extraReducers: {
-        [fetchPedidos.fullfiled]: (state,action) => fullfillPedidosRecebidosReducer(state, action.payload) // Onde colocamos o reducer do fetch
-    }
+    extraReducers: { // ATENCAO, ESCREVER CORRETAMENTE SENAO DA ERRO!!!
+        [fetchPedidos.fulfilled]: (state,action) => fulfillPedidosRecebidosReducer(state, action.payload) // Onde colocamos o reducer do fetch
+    },
     })
 
 export const { alteraPedidos } = pedidosrecebidosSlice.actions
