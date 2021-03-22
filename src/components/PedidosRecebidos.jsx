@@ -3,14 +3,14 @@ import React, { useState } from 'react'
 import Pedido from './Pedido.jsx'
 import PedidosEx from '../../db.json/PedidosEx'
 
-import { connect } from 'react-redux' // Conexao ao redux
-
-import { alterapedidoState } from '../store/actions/appActions'
+import { useSelector, useDispatch } from 'react-redux'
+import { alterapedidoState } from '../store/reducers/pedidosSlice'
 
 import '../styles/PedidosRecebidos.css'
 
-function PedidosRecebidos(props) {
-
+export default function PedidosRecebidos(props) {
+    const pedidos = useSelector(state => state.pedidos)
+    const dispatch = useDispatch()
     /*
     const Atualiza = () => { // Funcao atualiza irá jogar cada objeto em pedidos e depois 'objetos'
         const [...pedidos]= PedidosEx // spread vai pegar cada objeto
@@ -57,22 +57,3 @@ function PedidosRecebidos(props) {
 
     )
 }
-
-function MapStateToProps (state) {
-    return {
-        pedidoState: state.pedidos.pedidoState,
-    }
-}
-
-function mapDispatchToProps (dispatch) {
-    return {
-        alteraPedido(pedido){
-            const action = alterapedidoState(pedido)
-            dispatch(action)
-        }
-    }
-}
-
-export default connect(MapStateToProps,
-                mapDispatchToProps)(PedidosRecebidos)
-

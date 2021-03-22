@@ -1,8 +1,10 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'; // Hook que irei usar para passar o path
 
-// Redux da maneira nova
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'; // useDispatch faz o dispatch da nova forma
+import { alteraDescricao, alteraNome,
+        alteraRefeicao, alteraPreco,
+        alteraTipo } from '../store/reducers/cardapioSlice'
 
 import '../styles/CriaCardapio.css'
 
@@ -10,10 +12,11 @@ export default function CriaCardapio(props) {
     const history = useHistory(); // Para criar a rota no botão
 
     //useSelector pega os estados sem precisar de connect
-    const { nome, tipo, refeicao, descricao, preco } = useSelector(state => state.cardapio)
-    console.log(descricao)
+    const cardapio = useSelector(state => state.cardapio) // Pega 1 vetor com valores da store
     const dispatch = useDispatch();
 
+
+    /*
     function alteraNome(e) {
         dispatch({ type:'NOMEC_ALTERADO', payload: e})
     }
@@ -28,8 +31,8 @@ export default function CriaCardapio(props) {
     }
     function alteraPreco(e) {
         dispatch({ type:'PRECOC_ALTERADO', payload: e})
-    }
-
+    } */
+/*
     const limpar = () => (
         alteraNome(""),
         alteraTipo(""),
@@ -37,7 +40,7 @@ export default function CriaCardapio(props) {
         alteraDescricao("Escreva aqui!"),
         alteraPreco(0)
     )
-
+*/
 
     return(
     <div id="cria-cardapio">
@@ -50,33 +53,33 @@ export default function CriaCardapio(props) {
                  <label for="formGroupExampleInput">Nome: </label>
                  <br/>
                  <input type="text" className="form-control" id="formGroupExampleInput" 
-                 onChange={(e) => alteraNome(e.target.value)} value={nome} placeholder=""/>
+                 onChange={(e) => dispatch(alteraNome(e.target.value))} value={nome} placeholder=""/>
              </div>
             <br/>
              <div className="form-group">
                  <label for="formGroupExampleInput2">Tipo: </label>
                  <br/>
                  <input type="text" className="form-control" id="formGroupExampleInput2"
-                 onChange={(e) => alteraTipo(e.target.value)} value={tipo} placeholder=""/>
+                 onChange={(e) => dispatch(alteraTipo(e.target.value))} value={tipo} placeholder=""/>
              </div>
             <br/>
              <div className="form-group">
                  <label for="formGroupExampleInput2">Refeição: </label>
                  <br/>
                  <input type="text" className="form-control" id="formGroupExampleInput2" 
-                 onChange={(e) => alteraRefeicao(e.target.value)} value={refeicao} placeholder=""/>
+                 onChange={(e) => dispatch(alteraRefeicao(e.target.value))} value={refeicao} placeholder=""/>
              </div>
             <br/>
              <div className="form-group">
                  <label for="exampleFormControlTextarea1">Descrição:</label>
                  <br/>
-                 <textarea className="form-control-desc" onChange={(e) => alteraDescricao(e.target.value)} value={descricao} id="exampleFormControlTextarea1" rows="3"></textarea>
+                 <textarea className="form-control-desc" onChange={(e) => dispatch(alteraDescricao(e.target.value))} value={descricao} id="exampleFormControlTextarea1" rows="3"></textarea>
              </div>
             <br/>
              <div className="form-group col-md-2">
                  <label for="inputZip">Valor: </label>
                  <br/>
-                 <input type="number" onChange={(e) => alteraPreco(e.target.value)} value={preco} className="form-control-2" id="inputZip"/>
+                 <input type="number" onChange={(e) => dispatch(alteraPreco(e.target.value))} value={preco} className="form-control-2" id="inputZip"/>
              </div>
             <br/>
              <div className="botoes">

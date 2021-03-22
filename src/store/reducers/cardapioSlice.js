@@ -13,13 +13,13 @@ export const cardapioSlice = createSlice({ // retorna um objeto que contem os ac
     name: 'cardapio',
     initialState: cardapio,
     reducers: {
-            nome : (state, action) => ({...state, nome: action.payload}),
-            tipo : (state, action) => ({...state, tipo: action.payload}),
-            refeicao : (state, action) => ({...state, refeicao: action.payload}),
-            descricao : (state, action) => ({...state, descricao: action.payload}),
-            preco : (state, action) => ({...state, preco: action.payload}),
+            alteraNome : (state, action) => ({...state, nome: action.payload}),
+            alteraTipo : (state, action) => ({...state, tipo: action.payload}),
+            alteraRefeicao : (state, action) => ({...state, refeicao: action.payload}),
+            alteraDescricao : (state, action) => ({...state, descricao: action.payload}),
+            alteraPreco : (state, action) => ({...state, preco: action.payload}),
     }
 })
 
-export const { nome, tipo, refeicao, descricao, preco } = cardapioSlice.actions
+export const { alteraNome, alteraTipo, alteraRefeicao, alteraDescricao, alteraPreco } = cardapioSlice.actions
 export default cardapioSlice.reducer

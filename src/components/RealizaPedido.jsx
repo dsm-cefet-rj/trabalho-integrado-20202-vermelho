@@ -1,15 +1,16 @@
  import React from 'react'
  import { useHistory } from 'react-router-dom'; // Hook que irei usar para passar o path
 
- import { connect } from 'react-redux'
- import { alteraNumeroQuarto } from '../store/actions/appActions'
+ import { useDispatch, useSelector } from 'react-redux'
+ import { alteraQuarto } from '../store/actions/appActions'
 
  import '../styles/RealizaPedido.css'
 
- function RealizaPedido(props) {
+ export default function RealizaPedido(props) {
     const history = useHistory(); // Para criar a rota no botão
 
-    const { quarto } = props
+    const quarto = useSelector(state => state.quarto)
+    const dispatch = useDispatch()
 
     return (
         
@@ -37,7 +38,7 @@
         <div className="form-group col-md-2">
             <label className="quarto" for="inputZip">Quarto: </label>
             <input type="text" className="form-control" id="inputZip"
-            onChange={(e) => props.alteraQuarto(e.target.value)} value={quarto}/>
+            onChange={(e) => dispatch(alteraQuarto(e.target.value))} value={quarto}/>
         </div>
     </form>
         <br/>
@@ -59,21 +60,3 @@
 
     )
 }
-function MapToProps(state) {
-    return {
-        quarto: state.realiza.quarto
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        alteraQuarto(novoQuarto) {
-            const action = alteraNumeroQuarto(novoQuarto)
-            dispatch(action)
-        }
-    }
-}
-
-export default connect(MapToProps,
-                mapDispatchToProps)
-                (RealizaPedido)
