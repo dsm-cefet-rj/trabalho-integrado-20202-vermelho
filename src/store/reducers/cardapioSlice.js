@@ -5,7 +5,7 @@ const cardapio = {
     tipo: "",
     refeicao: "",
     descricao:"Escreva aqui!",
-    preco:"0"
+    preco:0
 }
 
 

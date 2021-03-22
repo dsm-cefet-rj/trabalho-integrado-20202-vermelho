@@ -9,7 +9,9 @@
  export default function RealizaPedido(props) {
     const history = useHistory(); // Para criar a rota no botão
 
-    const quarto = useSelector(state => state.quarto)
+    const realizapedido = useSelector(state => state.realizapedido)
+    const { quarto } = realizapedido
+
     const dispatch = useDispatch()
 
     return (
@@ -37,8 +39,8 @@
     <form>
         <div className="form-group col-md-2">
             <label className="quarto" for="inputZip">Quarto: </label>
-            <input type="text" className="form-control" id="inputZip"
-            onChange={(e) => dispatch(alteraQuarto(e.target.value))} value={quarto}/>
+            <input type="number" className="form-control" id="inputZip" 
+            onChange={(e) => dispatch(alteraQuarto(e.target.value))}  value={quarto} />
         </div>
     </form>
         <br/>

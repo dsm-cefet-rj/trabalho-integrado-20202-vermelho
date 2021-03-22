@@ -13,9 +13,9 @@ export default function CriaCardapio(props) {
 
     //useSelector pega os estados sem precisar de connect
     const cardapio = useSelector(state => state.cardapio) // Pega 1 objeto com valores da store
-    const dispatch = useDispatch();
-
     const { nome, tipo, refeicao, descricao, preco } = cardapio
+    
+    const dispatch = useDispatch();
    
     const limpar = () => (
         dispatch(alteraNome("")),

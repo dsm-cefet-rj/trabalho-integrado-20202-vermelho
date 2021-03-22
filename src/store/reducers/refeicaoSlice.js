@@ -10,7 +10,7 @@ export const refeicaoSlice = createSlice({
     initialState: refeicao,
     reducers: {
         alteraNome: (state, action) => ({...state, nome : action.payload}),
-        alteraTipo: (state, action) => ({...state, tupo : action.payload})
+        alteraTipo: (state, action) => ({...state, tipo : action.payload})
     }
 })
 
