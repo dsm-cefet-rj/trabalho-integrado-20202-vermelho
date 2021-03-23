@@ -24,5 +24,5 @@ export const pedidosrecebidosSlice = createSlice({ // retorna um objeto que cont
     },
     })
 
-export const { alteraPedidos } = pedidosrecebidosSlice.actions
+export const { alteraPedido } = pedidosrecebidosSlice.actions
 export default pedidosrecebidosSlice.reducer

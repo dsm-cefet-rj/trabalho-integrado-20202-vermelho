@@ -1,20 +1,44 @@
 { 
     "pedidosEx": [
         {
-        "id":"1",
-        "numero": 149205,
-        "quarto": 236,
-        "pedidos": ["Fritas C/ Coca", "Combo Hamburguer", "Sorvete de Flocos"],
-        "total": 50.00,
-        "pronto": "false"
+            "id":"1",
+            "numero": 149205,
+            "quarto": 236,
+            "pedidos": ["Fritas C/ Coca", "Combo Hamburguer", "Sorvete de Flocos"],
+            "total": 50.00,
+            "pronto": false
         },
         {
-        "id":2,
-        "numero": 149204,
-        "quarto": 12,
-        "pedidos": ["Fritas C/ Coca", "Combo Supremo", "Sorvete de Napolitano", "Balinhas de chocolate x5"],
-        "total": 70.00,
-        "pronto": "false"
+            "id":"2",
+            "numero": 149204,
+            "quarto": 12,
+            "pedidos": ["Fritas C/ Coca", "Combo Supremo", "Sorvete de Napolitano", "Balinhas de chocolate x5"],
+            "total": 70.00,
+            "pronto": false
+        },
+        {
+            "id":"3",
+            "numero": 159200,
+            "quarto": 262,
+            "pedidos": ["Combo Supremo", "Guaraná 2L"],
+            "total": 40.00,
+            "pronto": false
+        },
+        {
+            "id":"4",
+            "numero": 149207,
+            "quarto": 129,
+            "pedidos": ["Combo Supremo", "Sorvete de Napolitano"],
+            "total": 46.00,
+            "pronto": false
+        },
+        {
+            "id":"5",
+            "numero": 149404,
+            "quarto": 2,
+            "pedidos": ["Fritas C/ Coca", "Balinhas de chocolate x5"],
+            "total": 50.40,
+            "pronto": false
         }
     ]
     
