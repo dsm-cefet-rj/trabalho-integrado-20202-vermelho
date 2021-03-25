@@ -35,6 +35,7 @@ export default function SimpleMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
+        <MenuItem onClick={handleClose}><a href='/registrar'>Registrar</a></MenuItem>
         <MenuItem onClick={handleClose}><a href='/cardapio'>Cardápio</a></MenuItem>
         <MenuItem onClick={handleClose}><a href='/cria-cardapio'>Criar Cardápio</a></MenuItem>
         <MenuItem onClick={handleClose}><a href='/realiza-pedido'>Fazer Pedido</a></MenuItem>

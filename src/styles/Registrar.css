@@ -1,0 +1,21 @@
+.title {
+    height: 12vw;
+    background-color: rgb(139, 201, 236);
+    color: #12232E;
+    font-size: 5vw;
+    font-weight: bolder;
+}
+
+.Form {
+    background-color:  rgb(231, 229, 229);
+    min-height: 100vh;
+}
+
+#form-registrar input {
+    width: 80vw;
+    height: 6vh;
+}
+
+#form-registrar {
+    margin-left: 5vw;
+}

@@ -10,7 +10,7 @@ export default function CriaRefeicao(props) {
     const history = useHistory(); // Para cria a rota no botão
 
     const refeicao = useSelector(state => state.refeicao)
-    const {nome, tipo} = refeicao
+    const { nome, tipo } = refeicao
 
     const dispatch = useDispatch()
 
