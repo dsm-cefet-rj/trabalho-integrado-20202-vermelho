@@ -8,6 +8,19 @@ import { alteraDescricao, alteraNome,
 
 import '../styles/CriaCardapio.css'
 
+//bibliotecas para o form validation
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { ptForm } from 'yup-locale-pt';
+
+yup.setLocale(ptForm);
+
+export let schema = yup.object().shape({
+  nome: yup.string().required(),
+  tipo: yup.string().required(),
+});
+
 export default function CriaCardapio(props) {
     const history = useHistory(); // Para criar a rota no botão
 
@@ -25,25 +38,36 @@ export default function CriaCardapio(props) {
         dispatch(alteraPreco(0))
     )
 
+    const { register, handleSubmit, errors } = useForm({
+      resolver: yupResolver(schema),
+    });
+
+    const submitForm = (data) => {
+      console.log(data);
+    };
+
     return(
     <div id="cria-cardapio">
         <div className="cria-cardapio-titulo">
            <h3>Criar Cardápio</h3>
         </div>
-        <br/>       
-        <form className="formularios">
+        <br/>     
+
+        <form className="formularios" onSubmit={handleSubmit(submitForm)}>
             <div className="form-group">
                  <label for="formGroupExampleInput">Nome: </label>
                  <br/>
-                 <input type="text" className="form-control" id="formGroupExampleInput" 
-                 onChange={(e) => dispatch(alteraNome(e.target.value))} value={nome} placeholder=""/>
+                 <input type="text" className="form-control" id="formGroupExampleInput" onChange={e => dispatch(alteraNome(e.target.value)) }
+                value={nome}  name="nome" placeholder="" ref={register}/>
+                  <p> {errors.nome?.message} </p>
              </div>
             <br/>
              <div className="form-group">
                  <label for="formGroupExampleInput2">Tipo: </label>
                  <br/>
-                 <input type="text" className="form-control" id="formGroupExampleInput2"
-                 onChange={(e) => dispatch(alteraTipo(e.target.value))} value={tipo} placeholder=""/>
+                 <input type="text" className="form-control" id="formGroupExampleInput2" onChange={e => dispatch(alteraTipo(e.target.value)) }
+                 value={tipo} name="tipo" placeholder="" ref={register}/>
+                 <p> {errors.tipo?.message} </p>
              </div>
             <br/>
              <div className="form-group">
@@ -56,7 +80,8 @@ export default function CriaCardapio(props) {
              <div className="form-group">
                  <label for="exampleFormControlTextarea1">Descrição:</label>
                  <br/>
-                 <textarea className="form-control-desc" onChange={(e) => dispatch(alteraDescricao(e.target.value))} value={descricao} id="exampleFormControlTextarea1" rows="3"></textarea>
+                 <textarea className="form-control-desc"  id="exampleFormControlTextarea1" rows="3"
+                 onChange={e => dispatch(alteraDescricao(e.target.value))} value={descricao}></textarea>
              </div>
             <br/>
              <div className="form-group col-md-2">
@@ -73,7 +98,9 @@ export default function CriaCardapio(props) {
                      <div className="botao">Limpar</div>
                 </button>
              </div>  
-         </form>
+        </form>
+
+
     </div>
 )
 }
