@@ -4,6 +4,15 @@ import cardapiosEx from '../exemplos/cardapiosEx.js'
 
 import '../styles/Cardapio.css'
 
+/**
+ * @module components/Cardapio
+ */
+
+
+/**
+ * Componente para criar um cardápio.
+*/
+
 export default props => {
     const history = useHistory(); // Para cria a rota no botão
 

@@ -6,6 +6,18 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import '../styles/CriaRefeicao.css'
 
+
+/**
+ * @module components/CriaRefeicao
+ */
+
+
+/**
+ * Componente onde se cria uma Refeicao.
+ * 
+ */
+
+
 export default function CriaRefeicao(props) {
     const history = useHistory(); // Para cria a rota no botão
 

@@ -21,6 +21,17 @@ export let schema = yup.object().shape({
   tipo: yup.string().required(),
 });
 
+
+/**
+ * @module components/CriaCardapio
+ */
+
+/**
+ * Comoponente para criacar de cardapio.
+ * 
+ */
+
+
 export default function CriaCardapio(props) {
     const history = useHistory(); // Para criar a rota no botão
 

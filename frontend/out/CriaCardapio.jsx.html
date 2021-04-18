@@ -26,9 +26,10 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { React } from 'react'
+            <pre class="prettyprint source linenums"><code>import React from 'react'
 import { useHistory } from 'react-router-dom'; // Hook que irei usar para passar o path
 
+import { useSelector, useDispatch } from 'react-redux'; // useDispatch faz o dispatch da nova forma
 import { alteraDescricao, alteraNome,
         alteraRefeicao, alteraPreco,
         alteraTipo } from '../store/reducers/cardapioSlice'
@@ -40,15 +41,12 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { ptForm } from 'yup-locale-pt';
-import { useState } from 'react';
 
 yup.setLocale(ptForm);
 
 export let schema = yup.object().shape({
   nome: yup.string().required(),
   tipo: yup.string().required(),
-  descricao: yup.string().max(50),
-  preco: yup.number("Precisa ser um n�mero").positive("Precisa ser n�mero positivo").required(),
 });
 
 
@@ -56,27 +54,28 @@ export let schema = yup.object().shape({
  * @module components/CriaCardapio
  */
 
-
 /**
- * Componente para a criação de um novo cardápio.
+ * Comoponente para criacar de cardapio.
+ * 
  */
 
-function CriaCardapio(props) {
-    const history = useHistory(); // Para criar a rota no bot�o
 
-    const [nome, setNome] = useState('')
-    const [tipo, setTipo] = useState('')
-    const [refeicao, setRefeicao] = useState('')
-    const [descricao, setDescricao] = useState('Escreva Aqui!')
-    const [preco, setPreco] = useState(0)
+export default function CriaCardapio(props) {
+    const history = useHistory(); // Para criar a rota no botão
 
-    const limpar = () => {
-        setNome("")
-        setTipo("")
-        setRefeicao("")
-        setDescricao("Escreva Aqui!")
-        setPreco(0)
-    }
+    //useSelector pega os estados sem precisar de connect
+    const cardapio = useSelector(state => state.cardapio) // Pega 1 objeto com valores da store
+    const { nome, tipo, refeicao, descricao, preco } = cardapio
+    
+    const dispatch = useDispatch();
+   
+    const limpar = () => (
+        dispatch(alteraNome("")),
+        dispatch(alteraTipo("")),
+        dispatch(alteraRefeicao("")),
+        dispatch(alteraDescricao("Escreva aqui!")),
+        dispatch(alteraPreco(0))
+    )
 
     const { register, handleSubmit, errors } = useForm({
       resolver: yupResolver(schema),
@@ -97,37 +96,37 @@ function CriaCardapio(props) {
             &lt;div className="form-group">
                  &lt;label for="formGroupExampleInput">Nome: &lt;/label>
                  &lt;br/>
-                 &lt;input type="text" className="form-control" id="formGroupExampleInput" name="nome" placeholder="" ref={register}/>
+                 &lt;input type="text" className="form-control" id="formGroupExampleInput" onChange={e => dispatch(alteraNome(e.target.value)) }
+                value={nome}  name="nome" placeholder="" ref={register}/>
                   &lt;p> {errors.nome?.message} &lt;/p>
              &lt;/div>
             &lt;br/>
              &lt;div className="form-group">
                  &lt;label for="formGroupExampleInput2">Tipo: &lt;/label>
                  &lt;br/>
-                 &lt;input type="text" className="form-control" id="formGroupExampleInput2" name="tipo" placeholder="" ref={register}/>
+                 &lt;input type="text" className="form-control" id="formGroupExampleInput2" onChange={e => dispatch(alteraTipo(e.target.value)) }
+                 value={tipo} name="tipo" placeholder="" ref={register}/>
                  &lt;p> {errors.tipo?.message} &lt;/p>
              &lt;/div>
             &lt;br/>
              &lt;div className="form-group">
-                 &lt;label for="formGroupExampleInput2">Refeicao: &lt;/label>
+                 &lt;label for="formGroupExampleInput2">Refeição: &lt;/label>
                  &lt;br/>
-                 &lt;input type="text" className="form-control" id="formGroupExampleInput2" onChange = {e => setRefeicao(e.target.value)}
-                  value={refeicao} placeholder=""/>
+                 &lt;input type="text" className="form-control" id="formGroupExampleInput2" 
+                 onChange={(e) => dispatch(alteraRefeicao(e.target.value))} value={refeicao} placeholder=""/>
              &lt;/div>
             &lt;br/>
              &lt;div className="form-group">
-                 &lt;label for="exampleFormControlTextarea1">Descricao:&lt;/label>
+                 &lt;label for="exampleFormControlTextarea1">Descrição:&lt;/label>
                  &lt;br/>
-                 &lt;textarea className="form-control-desc"  id="exampleFormControlTextarea1" rows="3" placeholder="" ref={register}>&lt;/textarea>
-                 &lt;p> {errors.descricao?.message} &lt;/p> 
+                 &lt;textarea className="form-control-desc"  id="exampleFormControlTextarea1" rows="3"
+                 onChange={e => dispatch(alteraDescricao(e.target.value))} value={descricao}>&lt;/textarea>
              &lt;/div>
             &lt;br/>
              &lt;div className="form-group col-md-2">
                  &lt;label for="inputZip">Valor: &lt;/label>
                  &lt;br/>
-                 &lt;input type="number"  className="form-control-2" id="inputZip" placeholder="" ref={register} 
-                />
-                 &lt;p> {errors.preco?.message} &lt;/p>
+                 &lt;input type="number" onChange={(e) => dispatch(alteraPreco(e.target.value))} value={preco} className="form-control-2" id="inputZip"/>
              &lt;/div>
             &lt;br/>
              &lt;div className="botoes">
@@ -139,11 +138,11 @@ function CriaCardapio(props) {
                 &lt;/button>
              &lt;/div>  
         &lt;/form>
+
+
     &lt;/div>
 )
-}
-
-export default CriaCardapio</code></pre>
+}</code></pre>
         </article>
     </section>
 
@@ -153,13 +152,13 @@ export default CriaCardapio</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-components_Cardapio.html">components/Cardapio</a></li><li><a href="module-components_CriaCardapio.html">components/CriaCardapio</a></li><li><a href="module-components_CriaRefeicao.html">components/CriaRefeicao</a></li><li><a href="module-components_Pedido.html">components/Pedido</a></li><li><a href="module-components_PedidosRecebidos.html">components/PedidosRecebidos</a></li><li><a href="module-components_RealizaPedido.html">components/RealizaPedido</a></li><li><a href="module-components_Registrar.html">components/Registrar</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-components_Cardapio.html">components/Cardapio</a></li><li><a href="module-components_CriaCardapio.html">components/CriaCardapio</a></li><li><a href="module-components_CriaRefeicao.html">components/CriaRefeicao</a></li><li><a href="module-components_Pedido.html">components/Pedido</a></li><li><a href="module-components_PedidosRecebidos.html">components/PedidosRecebidos</a></li><li><a href="module-components_RealizaPedido.html">components/RealizaPedido</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Thu Apr 15 2021 17:38:59 GMT-0300 (Horário Padrão de Brasília)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sun Apr 18 2021 16:09:30 GMT-0300 (Horário Padrão de Brasília)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -26,54 +26,51 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useEffect }  from 'react'
+            <pre class="prettyprint source linenums"><code>import React, { useState }  from 'react'
 
 import Pedido from './Pedido.jsx'
+//import PedidosEx from '../../db.json/PedidosEx'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { updatePedidoServer, deletePedidoServer, addPedidoServer, fetchPedidos, selectAllPedidos } from '../store/reducers/pedidosrecebidosSlice'
+import { alteraPedido } from '../store/reducers/pedidosrecebidosSlice'
 
 import '../styles/PedidosRecebidos.css'
 
+export default function PedidosRecebidos(props) {
+    const pedidos = useSelector(state => state.pedidosrecebidos)
+    const dispatch = useDispatch()
+
+   // const [pedidoState, setPedidoState] = useState({})
+    
 /**
  * @module components/PedidosRecebidos
  */
 
 /**
- * Componente que instancia os pedidos com um componente filho e exibe na tela do app.
+ * Componente para visualizar pedidos que foram feitos pelos clientes.
+ * @param {*} pedido 
  */
 
-function PedidosRecebidos() {
-    const pedidos = useSelector(selectAllPedidos)
-    const state = useSelector(state => state.pedidosrecebidos.status)
-    const error = useSelector(state => state.pedidosrecebidos.error)
-
-    const dispatch = useDispatch()
-
-    useEffect(() => { // Faz o fetch quando pedidosrecebidos é renderizado
-        if (state === "not_loaded" || state === "saved" || state === "deleted") {
-            dispatch(fetchPedidos())
-        } else if (state === 'failed') {
-            setTimeout(() => dispatch(fetchPedidos()), 5000)
-        }
-    }, [state, dispatch])
-
-
     const Renderiza = pedido => {
-        const lidaPronto = () => { // Destructuring do objeto pronto para atualizar com pronto alterado.
-            const { id, numero, quarto, pedidos, total, pronto } = pedido
-            dispatch(updatePedidoServer(
-                {
-                    id: id,
-                    numero: numero,
-                    quarto: quarto,
-                    pedidos: pedidos,
-                    total: total,
-                    pronto: !pronto
-                }
-            )) 
-        }
+        /*
+        // Resumidamente, o map irá pegar um objeto que será passado para pedidos cada vez que a funcao for chamada
+        dispatch(alteraPedidos)({ // armazena localmanete os dados da consulta no bd para passar pras props
+            pedidos: pedido // Valor sera o objeto do map
+        })
+        console.log(pedidos) */
+        //setPedidoState(pedido)
+        //console.log(pedidoState.pronto)
 
+        const lidaPronto = () => { // A funcao pronto muda o estado do pedido alterando apenas 'pronto'
+            dispatch(alteraPedido(
+                pedido.pronto = !pedido.pronto
+            ))       
+        /*setPedidoState( pedidoState => ({
+                ...pedidoState,
+                pronto : true,
+            }), console.log(pedidoState)
+            )*/
+        }
         if (!pedido.pronto) {
             return (
                 &lt;Pedido numero={pedido.numero} quarto={pedido.quarto} pedidos={pedido.pedidos}
@@ -82,42 +79,25 @@ function PedidosRecebidos() {
         }
     }
 
-    const Condicao = pedidos => {
-        let renderiza = '';
-        
-        if (state === "loaded") {
-            renderiza = &lt;div>{pedidos.map(Renderiza)}&lt;/div>
-        }else if (state === "loading") {
-            renderiza = &lt;div className = 'renderiza-aviso' id = 'loading'>&lt;br/>&lt;img id="loading-img" src="/images/cardapio2.png"/>&lt;div className= 'loading-div'> Carregando...&lt;/div> &lt;/div>
-        }else if (state === "failed") {
-            renderiza = &lt;div className = 'renderiza-aviso' id = 'error'>&lt;div className='error-div'> Error: {error}&lt;/div> &lt;/div>
-        }
-       return renderiza
-    }
-
     return (
         &lt;div id="pedidos-recebidos">
             &lt;div className="pedidos-recebidos-titulo">
-                &lt;h3>Pedidos Recebidos
-                    &lt;img className='refresh' src="/images/refresh.png" onClick = {() => dispatch(fetchPedidos())}/>
-                &lt;/h3>
+                &lt;h3>Pedidos Recebidos &lt;button className='refresh'>Atualizar&lt;/button>&lt;/h3>
             &lt;/div>
-            {state === undefined ? // Caso não pegue nada do backend
+            {pedidos === undefined ? // Caso não pegue nada do backend
             &lt;div>
-              Sem novos pedidos!
+              Sem novos pedido!
             &lt;/div>
             :  
              &lt;div>
-                {Condicao(pedidos)}
+                {pedidos.map(Renderiza)}
             &lt;/div>}
           
             &lt;br />
         &lt;/div>
 
     )
-}
-
-export default PedidosRecebidos;</code></pre>
+}</code></pre>
         </article>
     </section>
 
@@ -127,13 +107,13 @@ export default PedidosRecebidos;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-components_Cardapio.html">components/Cardapio</a></li><li><a href="module-components_CriaCardapio.html">components/CriaCardapio</a></li><li><a href="module-components_CriaRefeicao.html">components/CriaRefeicao</a></li><li><a href="module-components_Pedido.html">components/Pedido</a></li><li><a href="module-components_PedidosRecebidos.html">components/PedidosRecebidos</a></li><li><a href="module-components_RealizaPedido.html">components/RealizaPedido</a></li><li><a href="module-components_Registrar.html">components/Registrar</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-components_Cardapio.html">components/Cardapio</a></li><li><a href="module-components_CriaCardapio.html">components/CriaCardapio</a></li><li><a href="module-components_CriaRefeicao.html">components/CriaRefeicao</a></li><li><a href="module-components_Pedido.html">components/Pedido</a></li><li><a href="module-components_PedidosRecebidos.html">components/PedidosRecebidos</a></li><li><a href="module-components_RealizaPedido.html">components/RealizaPedido</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Thu Apr 15 2021 17:38:59 GMT-0300 (Horário Padrão de Brasília)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sun Apr 18 2021 16:09:30 GMT-0300 (Horário Padrão de Brasília)
 </footer>
 
 <script> prettyPrint(); </script>

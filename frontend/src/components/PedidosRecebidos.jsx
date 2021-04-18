@@ -13,6 +13,15 @@ export default function PedidosRecebidos(props) {
     const dispatch = useDispatch()
 
    // const [pedidoState, setPedidoState] = useState({})
+    
+/**
+ * @module components/PedidosRecebidos
+ */
+
+/**
+ * Componente para visualizar pedidos que foram feitos pelos clientes.
+ * @param {*} pedido 
+ */
 
     const Renderiza = pedido => {
         /*

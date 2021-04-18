@@ -6,6 +6,16 @@
 
  import '../styles/RealizaPedido.css'
 
+ 
+/**
+ * @module components/RealizaPedido
+ */
+
+/**
+ * Componente que permite a realização de pedidos.
+ * @param {*} props 
+ */
+
  export default function RealizaPedido(props) {
     const history = useHistory(); // Para criar a rota no botão
 

@@ -2,6 +2,16 @@ import React from 'react'
 
 import '../styles/Pedido.css'
 
+
+/**
+ * @module components/Pedido
+ */
+
+/**
+ * Representa um Pedido
+ * 
+ */
+
 export default props => {
     const a = props.pedidos
 
