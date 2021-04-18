@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Cardapio.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Cardapio.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import  { React, useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'; // Hook que irei usar para passar o path
+
+import { selectAllCardapios, fetchCardapios } from '../store/reducers/cardapioSlice'
+import { useSelector, useDispatch } from 'react-redux'
+
+import '../styles/Cardapio.css'
+
+
+/**
+ * @module components/Cardapio
+ */
+
+
+/**
+ * Componente que lista todos os cardápios.
+ */
+
+const Cardapio = props => {
+    const history = useHistory(); // Para cria a rota no botão
+
+    const cardapios = useSelector(selectAllCardapios)
+    const state = useSelector(state => state.cardapio.status)
+    const error = useSelector(state => state.cardapio.error)
+
+    const dispatch = useDispatch()
+    
+    useEffect(() => {
+        if (state === "not_loaded" || state === "saved" || state === "deleted") {
+            dispatch(fetchCardapios())
+        }
+    }, [state, dispatch])
+
+    const [tipo, setTipo] = useState(0)
+
+    const Condicao = () => {
+        let renderiza = ''
+
+        if (state === "loaded") {
+            return cardapioAtu
+        } else if (state === "loading") {
+            renderiza = &lt;div className = 'renderiza-aviso' id = 'loading'>
+                            &lt;img id="loading-img" src="/images/cardapio2.png"/>
+                            &lt;div className= 'loading-div'>
+                            Carregando...    
+                            &lt;/div> 
+                        &lt;/div>
+        } else if (state === "failed") {
+            renderiza = &lt;div className = 'renderiza-aviso' id = 'error'>&lt;div className='error-div'> Error: {error}&lt;/div> &lt;/div>
+        }
+        return renderiza
+    }
+    
+    let cardapioAtu = cardapios.map(cardapio => {
+        if ( cardapio.tipo == tipo ){
+                return &lt;div className="cardapio-div">
+                        &lt;div className="cardapio-div2">
+                            &lt;p className="cardapio-elemento">{cardapio.nome}&lt;/p>
+                            &lt;input className="checkbox" type="checkbox"/>
+                        &lt;/div>
+                        {cardapio.img != "cardapio.png"
+                        ?
+                        &lt;img id="cardapio-img" src={`/images/${cardapio.img}`} alt=""/>
+                        :
+                        &lt;img id="cardapio-img-improvisado" src="/images/cardapio.png" alt=""/>}
+
+                        &lt;p className= "cardapio-descricao">{cardapio.descricao}&lt;/p>
+                        &lt;div>   
+                            &lt;ul>
+                                {cardapio.refeicoes.map(refeicao => (
+                                    &lt;li>{refeicao}&lt;/li>
+                                ))}
+                            &lt;/ul>
+                        &lt;/div>
+                        &lt;p className="cardapio-elemento" id="preco">{cardapio.preco}&lt;/p>
+                      &lt;/div>
+            }
+        })
+
+    return (
+            &lt;div id="cardapio">
+                &lt;div className="cardapio-titulo">
+                    &lt;h3>Cardápio &lt;/h3>
+                &lt;/div>
+                &lt;br />
+                &lt;form action="">
+                    &lt;div className="seletor">
+                        &lt;select className="opcoes" onChange={e => setTipo(e.target.value)}>
+                            &lt;option value= {0} selected>Café da Manhã&lt;/option>
+                            &lt;option value= {1}>Almoço&lt;/option>
+                            &lt;option value= {2}>Lanche da Tarde&lt;/option>
+                            &lt;option value= {3}>Janta&lt;/option>
+                            &lt;option value= {4}>Sobremesa&lt;/option>
+                            &lt;option value= {5}>Conveniência&lt;/option>
+                        &lt;/select>
+                    &lt;/div>
+                &lt;/form>
+                &lt;div className= "cardapios">
+                    &lt;h2>
+                        {Condicao()}
+                    &lt;/h2>
+                &lt;/div>
+
+                &lt;br />
+                &lt;div className="botoes-cardapio">
+                    &lt;button type="button" onClick={() => history.push('/realiza-pedido')} className="btn btn-primary" id="irpedido">&lt;div className="botao">Ir para Pedido&lt;/div>&lt;/button>
+                    &lt;button type="button" className="btn btn-danger" id="limpar">&lt;div className="botao">Limpar&lt;/div>&lt;/button>
+                &lt;/div>
+            &lt;/div>
+        )
+    }
+
+export default Cardapio;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-components_Cardapio.html">components/Cardapio</a></li><li><a href="module-components_CriaCardapio.html">components/CriaCardapio</a></li><li><a href="module-components_CriaRefeicao.html">components/CriaRefeicao</a></li><li><a href="module-components_Pedido.html">components/Pedido</a></li><li><a href="module-components_PedidosRecebidos.html">components/PedidosRecebidos</a></li><li><a href="module-components_RealizaPedido.html">components/RealizaPedido</a></li><li><a href="module-components_Registrar.html">components/Registrar</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Thu Apr 15 2021 17:38:59 GMT-0300 (Horário Padrão de Brasília)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

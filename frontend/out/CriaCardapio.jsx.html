@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: CriaCardapio.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: CriaCardapio.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { React } from 'react'
+import { useHistory } from 'react-router-dom'; // Hook que irei usar para passar o path
+
+import { alteraDescricao, alteraNome,
+        alteraRefeicao, alteraPreco,
+        alteraTipo } from '../store/reducers/cardapioSlice'
+
+import '../styles/CriaCardapio.css'
+
+//bibliotecas para o form validation
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { ptForm } from 'yup-locale-pt';
+import { useState } from 'react';
+
+yup.setLocale(ptForm);
+
+export let schema = yup.object().shape({
+  nome: yup.string().required(),
+  tipo: yup.string().required(),
+  descricao: yup.string().max(50),
+  preco: yup.number("Precisa ser um n�mero").positive("Precisa ser n�mero positivo").required(),
+});
+
+
+/**
+ * @module components/CriaCardapio
+ */
+
+
+/**
+ * Componente para a criação de um novo cardápio.
+ */
+
+function CriaCardapio(props) {
+    const history = useHistory(); // Para criar a rota no bot�o
+
+    const [nome, setNome] = useState('')
+    const [tipo, setTipo] = useState('')
+    const [refeicao, setRefeicao] = useState('')
+    const [descricao, setDescricao] = useState('Escreva Aqui!')
+    const [preco, setPreco] = useState(0)
+
+    const limpar = () => {
+        setNome("")
+        setTipo("")
+        setRefeicao("")
+        setDescricao("Escreva Aqui!")
+        setPreco(0)
+    }
+
+    const { register, handleSubmit, errors } = useForm({
+      resolver: yupResolver(schema),
+    });
+
+    const submitForm = (data) => {
+      console.log(data);
+    };
+
+    return(
+    &lt;div id="cria-cardapio">
+        &lt;div className="cria-cardapio-titulo">
+           &lt;h3>Criar Cardápio&lt;/h3>
+        &lt;/div>
+        &lt;br/>     
+
+        &lt;form className="formularios" onSubmit={handleSubmit(submitForm)}>
+            &lt;div className="form-group">
+                 &lt;label for="formGroupExampleInput">Nome: &lt;/label>
+                 &lt;br/>
+                 &lt;input type="text" className="form-control" id="formGroupExampleInput" name="nome" placeholder="" ref={register}/>
+                  &lt;p> {errors.nome?.message} &lt;/p>
+             &lt;/div>
+            &lt;br/>
+             &lt;div className="form-group">
+                 &lt;label for="formGroupExampleInput2">Tipo: &lt;/label>
+                 &lt;br/>
+                 &lt;input type="text" className="form-control" id="formGroupExampleInput2" name="tipo" placeholder="" ref={register}/>
+                 &lt;p> {errors.tipo?.message} &lt;/p>
+             &lt;/div>
+            &lt;br/>
+             &lt;div className="form-group">
+                 &lt;label for="formGroupExampleInput2">Refeicao: &lt;/label>
+                 &lt;br/>
+                 &lt;input type="text" className="form-control" id="formGroupExampleInput2" onChange = {e => setRefeicao(e.target.value)}
+                  value={refeicao} placeholder=""/>
+             &lt;/div>
+            &lt;br/>
+             &lt;div className="form-group">
+                 &lt;label for="exampleFormControlTextarea1">Descricao:&lt;/label>
+                 &lt;br/>
+                 &lt;textarea className="form-control-desc"  id="exampleFormControlTextarea1" rows="3" placeholder="" ref={register}>&lt;/textarea>
+                 &lt;p> {errors.descricao?.message} &lt;/p> 
+             &lt;/div>
+            &lt;br/>
+             &lt;div className="form-group col-md-2">
+                 &lt;label for="inputZip">Valor: &lt;/label>
+                 &lt;br/>
+                 &lt;input type="number"  className="form-control-2" id="inputZip" placeholder="" ref={register} 
+                />
+                 &lt;p> {errors.preco?.message} &lt;/p>
+             &lt;/div>
+            &lt;br/>
+             &lt;div className="botoes">
+                &lt;button type="button" className="btn" id="criar" onClick={() => history.push('/cardapio')}>
+                     &lt;div className="botao">Criar&lt;/div>
+                &lt;/button>
+                &lt;button type="button" className="btn" id="limpar" onClick={() => limpar()}>
+                     &lt;div className="botao">Limpar&lt;/div>
+                &lt;/button>
+             &lt;/div>  
+        &lt;/form>
+    &lt;/div>
+)
+}
+
+export default CriaCardapio</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-components_Cardapio.html">components/Cardapio</a></li><li><a href="module-components_CriaCardapio.html">components/CriaCardapio</a></li><li><a href="module-components_CriaRefeicao.html">components/CriaRefeicao</a></li><li><a href="module-components_Pedido.html">components/Pedido</a></li><li><a href="module-components_PedidosRecebidos.html">components/PedidosRecebidos</a></li><li><a href="module-components_RealizaPedido.html">components/RealizaPedido</a></li><li><a href="module-components_Registrar.html">components/Registrar</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Thu Apr 15 2021 17:38:59 GMT-0300 (Horário Padrão de Brasília)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
