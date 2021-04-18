@@ -48,7 +48,7 @@ router.route('/:id')
         res.send(err)
       }
     } catch (err) {
-      console.log(errParam)
+      //console.log(errParam)
       err.statusCode = 404
       res.send({})
     }

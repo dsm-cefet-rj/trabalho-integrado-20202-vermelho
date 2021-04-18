@@ -26,6 +26,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter); // Porta
 app.use('/pedidosEx', pedidosExRouter);
-app.use('/cardapiosEx', cardapiosExRouter);
+//app.use('/cardapiosEx', cardapiosExRouter);
 
 module.exports = app;
